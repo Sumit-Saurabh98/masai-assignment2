@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Div</title>
+  <style>
+    #target-div {
+      width: 300px;
+      height: 150px;
+      background-color: lightgray;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="color-input" placeholder="Enter color name">
+  <button id="bg-btn">Change Background</button>
+  <br><br>
+  <input type="text" id="text-input" placeholder="Enter new text">
+  <button id="text-btn">Update Text</button>
+
+  <div id="target-div">Initial Text Content</div>
+
+  <script>
+    const colorInput = document.getElementById('color-input');
+    const textInput = document.getElementById('text-input');
+    const div = document.getElementById('target-div');
+    const bgBtn = document.getElementById('bg-btn');
+    const textBtn = document.getElementById('text-btn');
+
+    bgBtn.addEventListener('click', () => {
+      const color = colorInput.value.trim();
+      const tester = document.createElement('div');
+      tester.style.color = color;
+      if (tester.style.color === '') {
+        alert('Invalid color name!');
+      } else {
+        div.style.backgroundColor = color;
+      }
+    });
+
+    textBtn.addEventListener('click', () => {
+      const text = textInput.value.trim();
+      if (text === '') {
+        alert('Please enter some text!');
+      } else {
+        div.textContent = text;
+      }
+    });
+  </script>
+
+</body>
+</html>
