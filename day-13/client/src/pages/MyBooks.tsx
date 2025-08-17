@@ -1,18 +1,19 @@
 
 import MyBookCard from "@/components/MyBookCard";
+import Navbar from "@/components/Navbar";
 import { useMyBook } from "@/hooks/useMyBook";
 
 const MyBooks = () => {
   const { changeMyBookRating, changeMyBookStatus, isLoading, myBooks } =
     useMyBook();
 
-    console.log(myBooks, "this is mybooks")
-
   if (isLoading) {
     return <h1 className="text-center text-lg">Loading your books...</h1>;
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {myBooks.length === 0 ? (
         <h1 className="col-span-full text-center text-lg">No books found</h1>
@@ -33,6 +34,7 @@ const MyBooks = () => {
         ))
       )}
     </div>
+    </>
   );
 };
 

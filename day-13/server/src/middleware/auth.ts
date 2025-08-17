@@ -36,7 +36,6 @@ const auth = async (
     
     next();
   } catch (error) {
-    console.log("Error in auth middleware :- ", error);
 
     if (error instanceof jwt.JsonWebTokenError) {
       res.status(401).json({ message: "Unauthorized - invalid token provided" });

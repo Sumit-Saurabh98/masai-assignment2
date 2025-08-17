@@ -22,8 +22,6 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       response = await axiosInstance.post("/auth/register", value);
 
-      console.log(response.data);
-
       setIsAuth(true);
       setIsLoading(false);
 
@@ -47,7 +45,6 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
     setIsLoading(true);
     try {
       const response = await axiosInstance.post("/auth/login", value);
-      console.log(response.data);
 
       setUser(response.data.user);
       setIsAuth(true);
@@ -65,9 +62,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
     setIsLoading(true);
 
     try {
-      const response = await axiosInstance.get("/auth/logout");
-
-      console.log(response.data);
+      await axiosInstance.get("/auth/logout");
 
       setIsAuth(false);
       setIsLoading(false);
@@ -89,8 +84,6 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     try {
       const response = await axiosInstance.get("/auth/me");
-
-      console.log(response.data);
 
       setIsAuth(true);
       setIsCheckingAuth(false);

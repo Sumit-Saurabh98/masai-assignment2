@@ -19,7 +19,6 @@ const BookCard = memo(({
   addBooksToMyBooks,
   isAddingToMyBooks = false
 }: BookCardProps) => {
-  console.log("Rendering:", title); // debug
   
   return (
     <Card className="w-full h-full rounded-2xl shadow-md overflow-hidden border border-gray-200 flex flex-col">

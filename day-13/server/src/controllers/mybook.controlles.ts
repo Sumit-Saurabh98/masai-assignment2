@@ -13,8 +13,6 @@ export const getMyBooks = tryCatch(async(req:Request, res:Response, next:NextFun
 
     const myBooks = await MyBook.find({userId:user._id}).populate("bookId")
 
-    console.log(myBooks, "ye books nhi hai kya")
-
     if(!myBooks){
         res.status(400).json({message:"some error during fetching books"})
         return
@@ -34,8 +32,6 @@ export const updateMyBookStatus = tryCatch(async(req:Request, res:Response, next
     const {status} = req.body
 
     const {bookId} = req.params
-
-    console.log(bookId, status)
 
     if(!bookId || !status){
         res.status(400).json({message:"Please provide bookId and status"})

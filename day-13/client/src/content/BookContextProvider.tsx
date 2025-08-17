@@ -55,8 +55,6 @@ export const BookContextProvider = ({
             bookId
         });
 
-        console.log(response.data);
-
         toast.success(response.data.message);
 
         setIsLoading(false);
